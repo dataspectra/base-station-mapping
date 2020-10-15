@@ -24,11 +24,13 @@ A directory with the current date is created and contain the output of the scrip
 
 # grgsm-burst
 
-This script intends to be used on low computing power devices. The script stores bursts in a file specified with -b:
+This script intends to be used on low computing power devices (Rpi 3/4, OrangePi). The script stores bursts in a file specified with -b, -s is the sampling rate--900001 being the lowest:
 ```bash
 $./grgsm_burst -f 940.4e6 -s900001 --args=rtl=0 -b myfile.burst
 ```
-To extract IMSI numbers from this burst file, one would use grgsmdecode and ./simplueIMSIcatecher.py:
+Try different value for s until you get decent output.
+
+To extract IMSI numbers from this burst file, one would use grgsm_decode and the `simpleIMSIcatcher.py` script as the following:
 ```bash
 $grgsm_decode -b myfile.burst -v
 #simple_IMSI-catcher.py --sniff
